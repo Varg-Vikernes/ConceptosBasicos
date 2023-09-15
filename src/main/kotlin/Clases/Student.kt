@@ -1,21 +1,37 @@
 package Clases
 
-class Student(val name: String = "Pedrito", val age: Int = 0) {
+class Student(val name: String = "Pedrito", val age: Int = 18) {
+    var email: String = ""
+
+    constructor(email: String) : this() {
+        this.email = email
+    }
+
     fun action() {
-        val message = "it is going to approve"
-        println(message)
+        println("Student action called")
+    }
+}
+
+class Subject(val name: String) {
+    constructor() : this("Español")
+
+    fun action() {
+        println("Subject Name: $name")
     }
 }
 
 fun main() {
-    val studentWithDefaults = Student() // Objeto con valores por defecto
-    val studentWithCustomData = Student("Juanito", 20) // Objeto con datos personalizados
+    val student1 = Student("")
+    student1.action()
+    println("Name: ${student1.name}, age ${student1.age}, email ${student1.email}")
 
-    println("Estudiante con valores por defecto:")
-    println("Nombre: ${studentWithDefaults.name}")
-    println("Edad: ${studentWithDefaults.age}")
+    val student2 = Student("xd")
+    student2.action()
+    println("Name: ${student2.name}, age ${student2.age}, email ${student2.email}")
 
-    println("\nEstudiante con datos personalizados:")
-    println("Nombre: ${studentWithCustomData.name}")
-    println("Edad: ${studentWithCustomData.age}")
+    val subject1 = Subject("Math")
+    subject1.action()
+
+    val subject2 = Subject()
+    subject2.action()
 }
